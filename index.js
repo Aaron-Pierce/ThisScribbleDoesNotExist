@@ -1,5 +1,3 @@
-let lock = false;
-let frameCount = 0;
 let seed = Date.now();
 if(window.location.search === ""){
     window.location.search = seed;
@@ -7,15 +5,13 @@ if(window.location.search === ""){
     console.log("loading ", window.location.search.replace("?", ""))
     seed = parseInt(window.location.search.replace("?", ""));
 }
+
 noise.seed(seed);
+
+
 let canvas = document.getElementById("canvas");
 if (canvas instanceof HTMLCanvasElement) {
-
-    let permalink = document.getElementById("permalink");
-    if(permalink instanceof HTMLAnchorElement){
-        permalink.innerHTML = window.location.toString();
-        permalink.href = window.location.toString();
-    }
+    
     let height = canvas.height;
     let width = canvas.width;
     let dotRadius = ((width + height) / 2) / 100;
@@ -31,25 +27,27 @@ if (canvas instanceof HTMLCanvasElement) {
             points.push(null);
         }
     }
+
     let lastPoint = points[0];
     for (let p of points) {
         if (p !== null) {
+
             ctx.beginPath();
             ctx.ellipse(
                 p.x, p.y,
                 dotRadius, dotRadius,
                 0, 0, 7
             );
-            ctx.fill();
-            if (lastPoint !== null) {
-                ctx.beginPath();
+
+            if (lastPoint !== null){
                 ctx.ellipse(
                     (p.x + lastPoint.x) / 2, (p.y + lastPoint.y) / 2,
                     dotRadius, dotRadius,
                     0, 0, 7
                 );
-                ctx.fill();
-            }
+            } 
+
+            ctx.fill();
         }
         lastPoint = p;
     }
