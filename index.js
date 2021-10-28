@@ -1,17 +1,22 @@
 let seed = Date.now();
 if(window.location.search === ""){
-    window.location.search = seed;
+    window.location.replace(new URL(window.location.toString()) + "?" + new URLSearchParams(seed));
+    // window.location.search = seed;
 }else{
     console.log("loading ", window.location.search.replace("?", ""))
     seed = parseInt(window.location.search.replace("?", ""));
 }
 
-noise.seed(seed);
+function another(){
+    window.location.replace(new URL(window.location.origin) + "?" + new URLSearchParams(Date.now()));
+    // return false;
+}
 
+noise.seed(seed);
 
 let canvas = document.getElementById("canvas");
 if (canvas instanceof HTMLCanvasElement) {
-    
+
     let height = canvas.height;
     let width = canvas.width;
     let dotRadius = ((width + height) / 2) / 100;
