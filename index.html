@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Card background</title>
+    <meta name="description" content="This scribble does not exist">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        html{
+            width: 100%;
+            overflow-x: hidden;
+        }
+        body {
+            margin-top: 10vmin;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.25em;
+        }
+
+        canvas{
+            width: 50vmin;
+            height: auto;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <script src="./noise.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <canvas id="canvas" width="700" height="700"></canvas>
+        <p>This scribble does not exist</p>
+        <a href="./"> Generate another </a>
+        <!-- <p> Permalink: <a href="./" id="permalink"></a></p> -->
+
+        <script src="./index.js" async defer></script>
+</body>
+
+</html>
